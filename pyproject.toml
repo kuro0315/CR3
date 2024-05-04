@@ -1,0 +1,37 @@
+[project]
+name = "cr3"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "kuro0315", email = "skuro0315@gmail.com" }
+]
+dependencies = [
+    "torch==2.3.0+cu118",
+    "torchvision==0.18.0+cu118",
+    "torchaudio==2.3.0+cu118",
+    "transformers>=4.40.1",
+    "datasets>=2.19.0",
+    "evaluate>=0.4.2",
+    "accelerate>=0.30.0",
+    "bitsandbytes>=0.43.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[[tool.rye.sources]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cr3"]
